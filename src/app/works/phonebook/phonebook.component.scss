@@ -1,0 +1,75 @@
+.container{
+    margin: 0 100px 0 100px;
+}
+
+.btn-success{
+    width: 180px;
+    margin: 0 0 0 10px;
+}
+.addTask{
+    padding: 10px 0 10px;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    display: flex;
+}
+
+td{
+    margin: 10px 0 10px;
+}
+tr:hover{
+    background-color: Gainsboro;
+}
+thead tr{
+    background-color: white;
+}
+
+.edit-button{
+    padding: 8px 20px;
+    background-color: darkorange;
+    border: 0px solid #000;
+    border-radius: 5px;
+}
+.edit-button:hover{
+    background-color: chocolate;
+}
+.edit-button:focus{
+    box-shadow: 0 0 3px 3px SandyBrown;
+}
+
+.delete-button{
+    padding: 8px 20px;
+    background-color: crimson;
+    border: 0px solid #000;
+    border-radius: 5px;
+    color: white;
+}
+.delete-button:hover{
+    background-color: firebrick;
+}
+
+.delete-button:focus{
+    box-shadow: 0 0 3px 3px LightCoral;
+}
+
+.update-task{
+    background-color: Gainsboro;
+}
+
+.save-button{
+    padding: 8px 20px;
+    background-color: green;
+    border: 0px solid #000;
+    border-radius: 5px;
+}
+.save-button:hover{
+    background-color: darkgreen;
+}
+.save-button:focus{
+    box-shadow: 0 0 3px 3px limegreen;
+}
+
+.button-th{
+    border: 0px solid #000;
+    background-color: white;
+    font-weight: 700;
+}

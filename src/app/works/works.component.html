@@ -1,0 +1,18 @@
+<ul class="nav nav-tabs actions">
+    <p class="p-nav">Last works >>></p>
+  <li class="nav-item ">
+    <a class="nav-link " [routerLink]="[ 'cenzor' ]" routerLinkActive="active">Cenzor</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="[ 'userlist' ]" routerLinkActive="active">User</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="[ 'tasklist' ]" routerLinkActive="active">Task</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="[ 'phonebook' ]" routerLinkActive="active">Phone book</a>
+  </li>
+  <button class="back-home" [routerLink]="[ '' ]" routerLinkActive="active">Back to >>> Home</button>
+</ul>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,80 @@
+<div class="container">
+    <h2 [ngStyle]="{'color': 'red'}">My phone book!</h2>
+    <div class="taskList">
+      <div class="addTask">
+        <input type="text" class="form-control" [placeholder]="placeholderSearch" [(ngModel)]="searchWord">
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">add phone</button>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">
+              <button (click)="sortFirstName()" class="button-th">First name</button>
+              <span *ngIf="arrowFirstName">
+                <i *ngIf="isSortUpFirstName" class="bi bi-caret-up-fill"></i>
+                <i *ngIf="!isSortUpFirstName" class="bi bi-caret-down-fill"></i>
+              </span>
+            </th>
+            <th scope="col">
+              <button (click)="sortLastName()" class="button-th">Last name</button>
+              <span *ngIf="arrowLastName">
+                <i *ngIf="isSortUpLastName" class="bi bi-caret-up-fill"></i>
+                <i *ngIf="!isSortUpLastName" class="bi bi-caret-down-fill"></i>
+              </span>
+            </th>
+            <th scope="col">
+              <button (click)="sortNumberPhone()" class="button-th">Number</button>
+              <span *ngIf="arrowNumberPhone">
+                <i *ngIf="isSortUpNumberPhone" class="bi bi-caret-up-fill"></i>
+                <i *ngIf="!isSortUpNumberPhone" class="bi bi-caret-down-fill"></i>
+              </span>
+            </th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let subscriber of arrSubscribers | search: searchWord | sort: selectSort: isSortUpFirstName: isSortUpLastName: isSortUpNumberPhone, let i = index">
+            <td>{{subscriber.firstName}}</td>
+            <td>{{subscriber.lastName}}</td>
+            <td>{{subscriber.numberPhone}}</td>
+            <td>
+              <button (click)="editSubscriber(i)" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="edit-button" type="button">Edit</button>
+            </td>
+            <td>
+              <button (click)="deleteSubscriber(i)" class="delete-button" type="button">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+
+
+
+  <!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Add phone</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="mb-3">
+                <input type="text" class="form-control" [placeholder]="placeholderAddFirstName" [(ngModel)]="newFirstName">
+              </div>
+              <div class="mb-3">
+                <input type="text" class="form-control" [placeholder]="placeholderAddSecondName" [(ngModel)]="newLastName">
+            </div>
+            <div class="mb-3">
+                <input type="text" class="form-control" [placeholder]="placeholderAddNumberPhone" [(ngModel)]="newNumberPhone">
+            </div>   
+        </div>
+        <div class="modal-footer">
+          <button (click)="addSubscriber()" type="button" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>

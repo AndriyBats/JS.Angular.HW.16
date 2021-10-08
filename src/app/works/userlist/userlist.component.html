@@ -1,0 +1,50 @@
+<!-- <p>homework13 works!</p> -->
+<div class="container">
+    <div class="left-block">
+        <p class="left-title">Login</p>
+        <input (blur)="validationLogin()" [ngStyle]="{'background': backgroundLogin}" [(ngModel)]="nameLogin" class="login" type="text" placeholder="Enter login">
+        <p class="left-title">Password</p>
+        <input (blur)="validationPassword()" [ngStyle]="{'background': backgroundPassword}" [(ngModel)]="namePassword" class="password" type="password" placeholder="Enter password">
+        <p class="left-title">Email address</p>
+        <input (blur)="validationEmailAddress()" [ngStyle]="{'background': backgroundEmailAddress}" [(ngModel)]="nameEmailAddress" class="email-address" type="email" placeholder="Enter email">
+        <input *ngIf="!isEditing" (click)="addNewUser()" class="add-user" type="button" value="Add user">
+        <input *ngIf="isEditing" (click)="updateUser()" class="edit-user" type="button" value="Update user">
+    </div>
+    <div class="right-block">
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Login</th>
+                    <th>Password</th>
+                    <th>Email</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody class="users-list">
+               <tr *ngFor="let item of arrUsers; let i = index">
+                   <td>
+                       {{i + 1}}
+                   </td>
+                   <td>
+                       {{item.loginUser}}
+                   </td>
+                   <td>
+                       {{item.passwordUser}}
+                   </td>
+                   <td>
+                       {{item.emailAddressUser}}
+                   </td>
+                   <td>
+                    <button type="button" (click)="editUser(i)" class="btn-edit-style">Edit</button>
+                   </td>
+                   <td>
+                    <button [disabled]="isEditing" type="button" (click)="deleteUser(i)" class="btn-delete-style">Delete</button>
+                   </td> 
+                  
+               </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

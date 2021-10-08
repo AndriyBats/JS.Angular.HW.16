@@ -1,0 +1,14 @@
+<!-- <p>homework12 works!</p> -->
+<header class="header">List of prohibited words:</header>
+<main class="main">
+    <div class="wrapper">
+        <div class="bad-words">Bad words: <span class="prohibited-word" *ngFor="let item of prohibitedWords">{{item}},</span></div>
+        <div class="input-buttons">
+            <input type="text" [placeholder]="myPlaceholder" [(ngModel)]="newProhibitedWord" name="newProhibitedWord" [ngStyle]="{'border': isEmpty ? '1px solid red' : '1px solid lightgrey'}"  class="enter-word">
+            <input (click)="addProhibitedWord()" class="add" type="button" value="Add">
+            <input (click)="reset()" class="reset" type="button" value="Reset">
+        </div>
+        <textarea [(ngModel)]="checkedText" [value]="newValue" class="textarea" cols="30" rows="5" [placeholder]="placeholderTextarea" [ngStyle]="{'border': isEmptyTextarea ? '1px solid red' : '1px solid lightgrey'}" ></textarea>
+        <input (click)="cenzor()" class="cenzor" type="button" value="Cenzor">
+    </div>
+</main>
